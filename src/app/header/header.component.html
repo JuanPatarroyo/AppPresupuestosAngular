@@ -1,24 +1,24 @@
 <div class="cabecero">
   <div class="presupuesto">
     <div class="presupuesto_titulo">
-      Presupuesto Disponible:
+      Available Budget:
     </div>
 
-    <div class="presupuesto_valor">{{totalBudget}}</div>
+    <div class="presupuesto_valor">{{totalBudget | currency: 'COP': '$': '1.2-2'}}</div>
 
     <div class="presupuesto_ingreso limpiarEstilos">
-      <div class="presupuesto_ingreso--texto">Ingresos</div>
+      <div class="presupuesto_ingreso--texto">Entries</div>
       <div class="right">
-        <div class="presupuesto_ingreso--valor">{{totalEntry}}</div>
+        <div class="presupuesto_ingreso--valor">{{totalEntry | currency: 'COP': '$': '1.2-2'}}</div>
         <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
       </div>
     </div>
 
     <div class="presupuesto_egreso limpiarEstilos">
-      <div class="presupuesto_egreso--text">Egresos</div>
+      <div class="presupuesto_egreso--text">Expenses</div>
       <div class="right limpiarEstilos">
-        <div class="presupuesto_egreso--valor">- {{totalEgress}}</div>
-        <div class="presupuesto_egreso--porcentaje">{{totalPercent}}%</div>
+        <div class="presupuesto_egreso--valor">- {{totalEgress | currency: 'COP': '$': '1.2-2'}}</div>
+        <div class="presupuesto_egreso--porcentaje">{{totalPercent | percent}}</div>
       </div>
     </div>
   </div>

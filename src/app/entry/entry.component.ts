@@ -1,3 +1,5 @@
+import { EntryService } from './entry.service';
+import { Entry } from './entry.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntryComponent implements OnInit {
 
-  constructor() { }
+  entries: Entry[] = [];
+
+  constructor(private entryService: EntryService) { }
 
   ngOnInit() {
+    this.entries = this.entryService.entries;
+  }
+
+  delete(entry: Entry) {
+    this.entryService.delete(entry);
   }
 
 }

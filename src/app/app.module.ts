@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { EntryComponent } from './entry/entry.component';
 import { EgressComponent } from './egress/egress.component';
 import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormComponent } from './form/form.component';
     FormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [EntryService, EgressService],
   bootstrap: [AppComponent]

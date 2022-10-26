@@ -1,13 +1,16 @@
-<form>
+<form (ngSubmit)="form.form.valid && addValue(form)" #form="ngForm">
   <div class="agregar">
     <div class="agregar_contenedor">
-      <select class="agregar_tipo">
-        <option value="ing" selected>+</option>
-        <option value="egr">-</option>
+      <select (change)="typeOperation($event)" [ngClass]="{'redFocus': type ==='egress'}" class="agregar_tipo redFocus">
+        <option value="entry" selected>+</option>
+        <option value="egress">-</option>
       </select>
-      <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción">
-      <input type="number" class="agregar_valor" placeholder="Valor">
-      <button class="agregar_btn"><i class="ion-ios-checkmark-outline"></i></button>
+      <input [ngClass]="{'redFocus': type === 'egress'}" type="text" class="agregar_descripcion"
+        placeholder="Description" name="descriptionInput" [(ngModel)]="descriptionInput" required>
+      <input type="number" [ngClass]="{'redFocus': type === 'egress'}" class="agregar_valor" placeholder="Value"
+        name="valueInput" [(ngModel)]="valueInput" required>
+      <button type="submit" class="agregar_btn"><i [ngClass]="{'red': type === 'egress'}"
+          class="ion-ios-checkmark-outline"></i></button>
     </div>
   </div>
 </form>
